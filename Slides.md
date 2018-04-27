@@ -52,6 +52,8 @@
 * La sintassi di bash è un superinsieme di quella di sh
 * E’ compatibile con tutti gli script per Sh (ma non vale il contrario)
 * Non completamente POSIX-compliant di default.
+Note:
+Spiegare POSIX
 
 
 ### Bash
@@ -184,30 +186,30 @@ e da dove arriva l'input di un comando
 
 
 ## Comandi per la redirection
-* ```
+```
 > Redirezione di STDOUT
 ```
-* ```
+```
 >> Appendere STDOUT alla destinazione
 ```
-* ```
+```
 tee Copia STDOUT e lo redirige
 ```
-* ```
+```
 < Redirezione di STDIN
 ```
-* ``` 
+``` 
 << Appendere STDIN alla destinazione
 ```
-* ```
+```
 2> Redirezione di STDERR
 ```
-* ```
+```
 &1 Puntatore a STDOUT
 ```
-* ```
-| redirige lo STDOUT della sorgente sull' STDIN 
-della destinazione
+```
+| redirige lo STDOUT della sorgente sull' STDIN della
+  destinazione
 ```
 
 
@@ -243,7 +245,8 @@ Sono tutti equivalenti
 * Sono una particolarità dei sistemi *nix
 * Sono programmi che prendono dati dallo standard input e lo reindirizzano sullo standard output
 * Esprimono la filosofia UNIX dell' utilizzar tanti piccoli programmi per ottenere un grande output
-
+Note:
+Spiegare filosofia UNIX
 
 ## Esempi di filri
 ```
@@ -276,9 +279,24 @@ Mostra le ultime linee provenienti dall' STDIN o da un file di testo
 ```
 less [-options] <file>
 ```
-less is more.  
-Sed e Awk per cui esistono libri interi 
-in quanto sono linguaggi di scripting a tutti gli effetti
+less is more.
+
+
+## Sed e Awk
+* Sed è un editor non interattivo di testi
+* Awk è un linguaggio di scripting per manipolare dati testuali
+* Sono utilizzati per sviluppare filtri avanzati
+
+
+## Esempi
+```
+sed G file.txt > file.txt
+```
+Raddoppia gli spazi del file
+```
+awk `length($0) > 16' file.txt
+```
+Stampa solo le linee del file con lunghezza maggiore di 16 caratteri
 
 
 
@@ -293,7 +311,7 @@ in quanto sono linguaggi di scripting a tutti gli effetti
 
 ## ls
 ```
-ls [-options] [--] [<file> o <directory>...]
+ls [-options] [<file> o <directory>...]
 ```
 Permette di elencare informazioni sui file
 Le opzioni principali sono:
@@ -348,7 +366,7 @@ Elimina una directory
 ```
 rm -rf <directory>
 ```
-Elimina una directory
+Elimina una directory  
 _*ATTENZIONE QUANDO SI USANO I COMANDI DI RIMOZIONE*_
 
 
@@ -392,7 +410,7 @@ less <file>
 ```
 $EDITOR <file>
 ```
-Sono tutti metodi per Visualizzareil contenuto di un file
+Sono tutti metodi per Visualizzare il contenuto di un file
 
 
 ## Operazioni sui file
@@ -405,11 +423,14 @@ mv [-options] <origine> <destinazione>
 ```
 Permette di spostare un file, è utilizzato anche per rinominare i file
 ```
-rm <file>
+rm [-options] <file>
 ```
 Elimina un file
+
+
+## Operazioni sui file
 ```
-ln <origine> <destinazione>
+ln [-options] <origine> <destinazione>
 ```
 Permette di creare un link tra due file
 l'opzione `-s` crea un link simbolico tra i 2 file
@@ -471,7 +492,7 @@ nome di file
 * `?` un qualunque carattere in un nome di file
 * `[zfc]` un qualunque carattere, in un nome di file,
 compreso  tra  quelli  nell'insieme.  Anche range
-di valori: [a-d], d esempio:  
+di valori: [a-d], esempio:  
 ``` 
 ls  [q-s]*
 ```
@@ -483,16 +504,50 @@ lista  i  file  con  nomi  che  iniziano  con  un carattere compreso tra q e s
 * `\` escape  (segnala  di non  interpretare il  carattere successivo come speciale)
 
 
+## Gestione processi
+Attraverso la shel è possibile gestire i processi
+```
+ps [-options]
+```
+Manda sullo STDOUT i processi presenti nel sistema in un determinato momento
+```
+kill <pid>
+```
+Uccide il processo corrispondente a un determinato PID (Process ID)
+```
+killall <nome processo>
+```
+Uccide tutti i processi che hanno un determinato nome
+
+
 
 ### Ringraziamenti
 
 
+Evento patrocinato da:  
+<img style ="background-color: white" src="unixMiB.png" width="50%" back>
+<img style ="background-color: white" src="SiB.png" width="50%">
+
+
+Un ringraziamento speciale a:
+<img style ="background-color: white; margin=5ex" src="BGLUG.png">
+per il supporto fornito
+
+
+Made with ❤️ using [reveal.js](https://revealjs.com)
+
+
 
 ### Link Utili
-[Bash Cheatshet](https://devhints.io/bash)
 
-[Facebook Unixmib](https://www.facebook.com/unixmib/)  
-[Sito](https://unixmib.github.io)  
-[Github Unixmib](https://github.com/unixMiB)  
-[Telegram @unixmib](https://github.com/unixMiB)  
-[Telegram @unixmibinfo](https://t.me/unixmibinfo)  
+
+[Bash Cheatshet](https://devhints.io/bash)  
+[BGLUG](https://bglug.it)  
+[Slides](unixmib.github.io/BashSlidesPt1)  
+
+
+[Facebook unixMiB](https://www.facebook.com/unixmib/)  
+[Sito unixMiB](https://unixmib.github.io)  
+[Github unixMiB](https://github.com/unixMiB)  
+[Telegram @unixmib](https://t.me/unixmib)  
+[Telegram @unixmibinfo](https://t.me/unixmibinfo)
