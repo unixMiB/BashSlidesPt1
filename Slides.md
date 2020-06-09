@@ -10,8 +10,8 @@
 
 
 ### Shell 
-* LA SHELL NON E’ LA RIGA DI COMANDO
-* La riga di comando o cli è un tipo di interfaccia tra un qualunque dispositivo e l’ utente finale
+* LA SHELL NON E’ LINTERFACCIA A RIGA DI COMANDO
+* L'interfaccia a riga di comando o cli è un tipo di interfaccia tra un qualunque dispositivo e l’ utente finale
 
 
 ### Shell 
